@@ -1,0 +1,19 @@
+# GStreamer Pipeline Studio - Python Backend Requirements
+# 
+# Note: PyGObject and GStreamer bindings are typically installed via system packages:
+#   - Ubuntu/Debian: python3-gi python3-gst-1.0
+#   - Fedora: python3-gobject python3-gstreamer1
+#   - Arch: python-gobject
+#
+# This file lists additional Python dependencies if needed.
+
+# PyGObject - GObject introspection bindings
+# Install via system package manager instead of pip for GStreamer support
+# PyGObject>=3.42.0
+
+# No additional pip dependencies required - all functionality uses:
+# - gi.repository.Gst (GStreamer)
+# - gi.repository.GLib (GLib main loop)
+# - Standard library modules (json, threading, signal, base64, etc.)
+
+

@@ -1,0 +1,645 @@
+{
+  "version": "1.0",
+  "gstreamerVersion": "1.20+",
+  "elements": [
+    {
+      "name": "videotestsrc",
+      "longName": "Video test source",
+      "description": "Creates a test video signal",
+      "klass": "Source/Video",
+      "category": "Sources"
+    },
+    {
+      "name": "audiotestsrc",
+      "longName": "Audio test source",
+      "description": "Creates audio test signals of given frequency and volume",
+      "klass": "Source/Audio",
+      "category": "Sources"
+    },
+    {
+      "name": "filesrc",
+      "longName": "File Source",
+      "description": "Read from arbitrary point in a file",
+      "klass": "Source/File",
+      "category": "Sources"
+    },
+    {
+      "name": "uridecodebin",
+      "longName": "URI Decoding Bin",
+      "description": "Autoplug and decode an URI to raw media",
+      "klass": "Generic/Bin/Decoder",
+      "category": "Sources"
+    },
+    {
+      "name": "uridecodebin3",
+      "longName": "URI Decoding Bin 3",
+      "description": "Autoplug and decode an URI to raw media",
+      "klass": "Generic/Bin/Decoder",
+      "category": "Sources"
+    },
+    {
+      "name": "v4l2src",
+      "longName": "Video4Linux2 Source",
+      "description": "Reads frames from a Video4Linux2 device",
+      "klass": "Source/Video",
+      "category": "Sources"
+    },
+    {
+      "name": "pulsesrc",
+      "longName": "PulseAudio Source",
+      "description": "Captures audio from a PulseAudio server",
+      "klass": "Source/Audio",
+      "category": "Sources"
+    },
+    {
+      "name": "alsasrc",
+      "longName": "ALSA Audio Source",
+      "description": "Read from an audio card via ALSA",
+      "klass": "Source/Audio",
+      "category": "Sources"
+    },
+    {
+      "name": "autovideosink",
+      "longName": "Auto video sink",
+      "description": "Wrapper video sink for automatically detected video sink",
+      "klass": "Sink/Video",
+      "category": "Sinks"
+    },
+    {
+      "name": "autoaudiosink",
+      "longName": "Auto audio sink",
+      "description": "Wrapper audio sink for automatically detected audio sink",
+      "klass": "Sink/Audio",
+      "category": "Sinks"
+    },
+    {
+      "name": "filesink",
+      "longName": "File Sink",
+      "description": "Write stream to a file",
+      "klass": "Sink/File",
+      "category": "Sinks"
+    },
+    {
+      "name": "fakesink",
+      "longName": "Fake Sink",
+      "description": "Black hole for data",
+      "klass": "Sink",
+      "category": "Sinks"
+    },
+    {
+      "name": "xvimagesink",
+      "longName": "Video sink",
+      "description": "A Xv based videosink",
+      "klass": "Sink/Video",
+      "category": "Sinks"
+    },
+    {
+      "name": "ximagesink",
+      "longName": "Video sink",
+      "description": "A standard X based videosink",
+      "klass": "Sink/Video",
+      "category": "Sinks"
+    },
+    {
+      "name": "glimagesink",
+      "longName": "GL Image Sink",
+      "description": "A videosink based on OpenGL",
+      "klass": "Sink/Video",
+      "category": "Sinks"
+    },
+    {
+      "name": "waylandsink",
+      "longName": "Wayland Video Sink",
+      "description": "Output to Wayland surface",
+      "klass": "Sink/Video",
+      "category": "Sinks"
+    },
+    {
+      "name": "pulsesink",
+      "longName": "PulseAudio Sink",
+      "description": "Plays audio to a PulseAudio server",
+      "klass": "Sink/Audio",
+      "category": "Sinks"
+    },
+    {
+      "name": "alsasink",
+      "longName": "ALSA Audio Sink",
+      "description": "Output to an ALSA audio card via ALSA",
+      "klass": "Sink/Audio",
+      "category": "Sinks"
+    },
+    {
+      "name": "appsink",
+      "longName": "AppSink",
+      "description": "Allow the application to get access to raw buffer",
+      "klass": "Generic/Sink",
+      "category": "Sinks"
+    },
+    {
+      "name": "appsrc",
+      "longName": "AppSrc",
+      "description": "Allow the application to feed buffers to a pipeline",
+      "klass": "Generic/Source",
+      "category": "Sources"
+    },
+    {
+      "name": "x264enc",
+      "longName": "x264 H.264 Encoder",
+      "description": "H.264/AVC encoder based on x264",
+      "klass": "Codec/Encoder/Video",
+      "category": "Encoders"
+    },
+    {
+      "name": "vp8enc",
+      "longName": "VP8 Encoder",
+      "description": "Encodes VP8 video",
+      "klass": "Codec/Encoder/Video",
+      "category": "Encoders"
+    },
+    {
+      "name": "vp9enc",
+      "longName": "VP9 Encoder",
+      "description": "Encodes VP9 video",
+      "klass": "Codec/Encoder/Video",
+      "category": "Encoders"
+    },
+    {
+      "name": "theoraenc",
+      "longName": "Theora Encoder",
+      "description": "Encodes Theora video",
+      "klass": "Codec/Encoder/Video",
+      "category": "Encoders"
+    },
+    {
+      "name": "jpegenc",
+      "longName": "JPEG Encoder",
+      "description": "Encodes JPEG images",
+      "klass": "Codec/Encoder/Image",
+      "category": "Encoders"
+    },
+    {
+      "name": "pngenc",
+      "longName": "PNG Encoder",
+      "description": "Encodes PNG images",
+      "klass": "Codec/Encoder/Image",
+      "category": "Encoders"
+    },
+    {
+      "name": "opusenc",
+      "longName": "Opus Encoder",
+      "description": "Encodes audio in Opus format",
+      "klass": "Codec/Encoder/Audio",
+      "category": "Encoders"
+    },
+    {
+      "name": "vorbisenc",
+      "longName": "Vorbis Encoder",
+      "description": "Encodes audio in Vorbis format",
+      "klass": "Codec/Encoder/Audio",
+      "category": "Encoders"
+    },
+    {
+      "name": "lamemp3enc",
+      "longName": "LAME MP3 Encoder",
+      "description": "High-quality MP3 encoder",
+      "klass": "Codec/Encoder/Audio",
+      "category": "Encoders"
+    },
+    {
+      "name": "faac",
+      "longName": "AAC Encoder",
+      "description": "Encodes audio in AAC format",
+      "klass": "Codec/Encoder/Audio",
+      "category": "Encoders"
+    },
+    {
+      "name": "avdec_h264",
+      "longName": "libav H.264 Decoder",
+      "description": "H.264/AVC decoder based on libav",
+      "klass": "Codec/Decoder/Video",
+      "category": "Decoders"
+    },
+    {
+      "name": "avdec_h265",
+      "longName": "libav H.265 Decoder",
+      "description": "H.265/HEVC decoder based on libav",
+      "klass": "Codec/Decoder/Video",
+      "category": "Decoders"
+    },
+    {
+      "name": "vp8dec",
+      "longName": "VP8 Decoder",
+      "description": "Decodes VP8 video",
+      "klass": "Codec/Decoder/Video",
+      "category": "Decoders"
+    },
+    {
+      "name": "vp9dec",
+      "longName": "VP9 Decoder",
+      "description": "Decodes VP9 video",
+      "klass": "Codec/Decoder/Video",
+      "category": "Decoders"
+    },
+    {
+      "name": "theoradec",
+      "longName": "Theora Decoder",
+      "description": "Decodes Theora video",
+      "klass": "Codec/Decoder/Video",
+      "category": "Decoders"
+    },
+    {
+      "name": "jpegdec",
+      "longName": "JPEG Decoder",
+      "description": "Decodes JPEG images",
+      "klass": "Codec/Decoder/Image",
+      "category": "Decoders"
+    },
+    {
+      "name": "pngdec",
+      "longName": "PNG Decoder",
+      "description": "Decodes PNG images",
+      "klass": "Codec/Decoder/Image",
+      "category": "Decoders"
+    },
+    {
+      "name": "opusdec",
+      "longName": "Opus Decoder",
+      "description": "Decodes Opus audio",
+      "klass": "Codec/Decoder/Audio",
+      "category": "Decoders"
+    },
+    {
+      "name": "vorbisdec",
+      "longName": "Vorbis Decoder",
+      "description": "Decodes Vorbis audio",
+      "klass": "Codec/Decoder/Audio",
+      "category": "Decoders"
+    },
+    {
+      "name": "decodebin",
+      "longName": "Decoder Bin",
+      "description": "Autoplug and decode to raw media",
+      "klass": "Generic/Bin/Decoder",
+      "category": "Decoders"
+    },
+    {
+      "name": "decodebin3",
+      "longName": "Decoder Bin 3",
+      "description": "Autoplug and decode to raw media",
+      "klass": "Generic/Bin/Decoder",
+      "category": "Decoders"
+    },
+    {
+      "name": "videoconvert",
+      "longName": "Colorspace converter",
+      "description": "Converts video from one colorspace to another",
+      "klass": "Filter/Converter/Video",
+      "category": "Converters"
+    },
+    {
+      "name": "videoscale",
+      "longName": "Video scaler",
+      "description": "Resizes video",
+      "klass": "Filter/Converter/Video/Scaler",
+      "category": "Converters"
+    },
+    {
+      "name": "videorate",
+      "longName": "Video rate adjuster",
+      "description": "Adjusts video frame rate",
+      "klass": "Filter/Effect/Video",
+      "category": "Converters"
+    },
+    {
+      "name": "audioconvert",
+      "longName": "Audio converter",
+      "description": "Converts audio to different formats",
+      "klass": "Filter/Converter/Audio",
+      "category": "Converters"
+    },
+    {
+      "name": "audioresample",
+      "longName": "Audio resampler",
+      "description": "Resamples audio",
+      "klass": "Filter/Converter/Audio",
+      "category": "Converters"
+    },
+    {
+      "name": "capsfilter",
+      "longName": "CapsFilter",
+      "description": "Pass data without modification, limiting formats",
+      "klass": "Generic",
+      "category": "Filters"
+    },
+    {
+      "name": "videobox",
+      "longName": "Video box filter",
+      "description": "Resizes a video by adding borders or cropping",
+      "klass": "Filter/Effect/Video",
+      "category": "Effects"
+    },
+    {
+      "name": "videocrop",
+      "longName": "Video cropper",
+      "description": "Crops video into a user-defined region",
+      "klass": "Filter/Effect/Video",
+      "category": "Effects"
+    },
+    {
+      "name": "videoflip",
+      "longName": "Video flipper",
+      "description": "Flips and rotates video",
+      "klass": "Filter/Effect/Video",
+      "category": "Effects"
+    },
+    {
+      "name": "gamma",
+      "longName": "Video gamma correction",
+      "description": "Adjusts gamma on a video stream",
+      "klass": "Filter/Effect/Video",
+      "category": "Effects"
+    },
+    {
+      "name": "videobalance",
+      "longName": "Video balance",
+      "description": "Adjusts brightness, contrast, saturation, and hue",
+      "klass": "Filter/Effect/Video",
+      "category": "Effects"
+    },
+    {
+      "name": "textoverlay",
+      "longName": "Text overlay",
+      "description": "Adds text strings on top of a video buffer",
+      "klass": "Filter/Editor/Video",
+      "category": "Effects"
+    },
+    {
+      "name": "clockoverlay",
+      "longName": "Clock overlay",
+      "description": "Overlays the current clock time on a video stream",
+      "klass": "Filter/Editor/Video",
+      "category": "Effects"
+    },
+    {
+      "name": "timeoverlay",
+      "longName": "Time overlay",
+      "description": "Overlays buffer time stamps on a video stream",
+      "klass": "Filter/Editor/Video",
+      "category": "Effects"
+    },
+    {
+      "name": "volume",
+      "longName": "Volume",
+      "description": "Set volume on audio/raw streams",
+      "klass": "Filter/Effect/Audio",
+      "category": "Effects"
+    },
+    {
+      "name": "audiomixer",
+      "longName": "Audio mixer",
+      "description": "Mixes multiple audio streams",
+      "klass": "Generic/Audio",
+      "category": "Effects"
+    },
+    {
+      "name": "queue",
+      "longName": "Queue",
+      "description": "Simple data queue",
+      "klass": "Generic",
+      "category": "Filters"
+    },
+    {
+      "name": "queue2",
+      "longName": "Queue 2",
+      "description": "Simple data queue with more features",
+      "klass": "Generic",
+      "category": "Filters"
+    },
+    {
+      "name": "multiqueue",
+      "longName": "MultiQueue",
+      "description": "Multiple data queues",
+      "klass": "Generic",
+      "category": "Filters"
+    },
+    {
+      "name": "tee",
+      "longName": "Tee pipe fitting",
+      "description": "1-to-N pipe fitting",
+      "klass": "Generic",
+      "category": "Filters"
+    },
+    {
+      "name": "identity",
+      "longName": "Identity",
+      "description": "Pass data without modification",
+      "klass": "Generic",
+      "category": "Filters"
+    },
+    {
+      "name": "valve",
+      "longName": "Valve",
+      "description": "Drops buffers and events or lets them through",
+      "klass": "Generic",
+      "category": "Filters"
+    },
+    {
+      "name": "input-selector",
+      "longName": "Input selector",
+      "description": "N-to-1 input stream selector",
+      "klass": "Generic",
+      "category": "Filters"
+    },
+    {
+      "name": "output-selector",
+      "longName": "Output selector",
+      "description": "1-to-N output stream selector",
+      "klass": "Generic",
+      "category": "Filters"
+    },
+    {
+      "name": "matroskamux",
+      "longName": "Matroska muxer",
+      "description": "Muxes video/audio/subtitle streams into a Matroska stream",
+      "klass": "Codec/Muxer",
+      "category": "Muxers"
+    },
+    {
+      "name": "webmmux",
+      "longName": "WebM muxer",
+      "description": "Muxes video/audio streams into a WebM stream",
+      "klass": "Codec/Muxer",
+      "category": "Muxers"
+    },
+    {
+      "name": "mp4mux",
+      "longName": "MP4 Muxer",
+      "description": "Muxes video/audio streams into an MP4 container",
+      "klass": "Codec/Muxer",
+      "category": "Muxers"
+    },
+    {
+      "name": "qtmux",
+      "longName": "QuickTime Muxer",
+      "description": "Muxes video/audio streams into QuickTime format",
+      "klass": "Codec/Muxer",
+      "category": "Muxers"
+    },
+    {
+      "name": "oggmux",
+      "longName": "Ogg muxer",
+      "description": "Muxes streams into an Ogg container",
+      "klass": "Codec/Muxer",
+      "category": "Muxers"
+    },
+    {
+      "name": "avimux",
+      "longName": "AVI muxer",
+      "description": "Muxes streams into an AVI container",
+      "klass": "Codec/Muxer",
+      "category": "Muxers"
+    },
+    {
+      "name": "flvmux",
+      "longName": "FLV muxer",
+      "description": "Muxes streams into an FLV container",
+      "klass": "Codec/Muxer",
+      "category": "Muxers"
+    },
+    {
+      "name": "mpegtsmux",
+      "longName": "MPEG TS Muxer",
+      "description": "Muxes media into MPEG Transport Stream",
+      "klass": "Codec/Muxer",
+      "category": "Muxers"
+    },
+    {
+      "name": "matroskademux",
+      "longName": "Matroska demuxer",
+      "description": "Demuxes Matroska streams",
+      "klass": "Codec/Demuxer",
+      "category": "Demuxers"
+    },
+    {
+      "name": "qtdemux",
+      "longName": "QuickTime demuxer",
+      "description": "Demuxes QuickTime and ISO media streams",
+      "klass": "Codec/Demuxer",
+      "category": "Demuxers"
+    },
+    {
+      "name": "oggdemux",
+      "longName": "Ogg demuxer",
+      "description": "Demuxes Ogg streams",
+      "klass": "Codec/Demuxer",
+      "category": "Demuxers"
+    },
+    {
+      "name": "avidemux",
+      "longName": "AVI demuxer",
+      "description": "Demuxes AVI streams",
+      "klass": "Codec/Demuxer",
+      "category": "Demuxers"
+    },
+    {
+      "name": "flvdemux",
+      "longName": "FLV Demuxer",
+      "description": "Demuxes FLV streams",
+      "klass": "Codec/Demuxer",
+      "category": "Demuxers"
+    },
+    {
+      "name": "tsdemux",
+      "longName": "MPEG TS Demuxer",
+      "description": "Demuxes MPEG Transport Streams",
+      "klass": "Codec/Demuxer",
+      "category": "Demuxers"
+    },
+    {
+      "name": "h264parse",
+      "longName": "H.264 parser",
+      "description": "Parses H.264 streams",
+      "klass": "Codec/Parser/Video",
+      "category": "Parsers"
+    },
+    {
+      "name": "h265parse",
+      "longName": "H.265 parser",
+      "description": "Parses H.265 streams",
+      "klass": "Codec/Parser/Video",
+      "category": "Parsers"
+    },
+    {
+      "name": "mpegvideoparse",
+      "longName": "MPEG video parser",
+      "description": "Parses MPEG video streams",
+      "klass": "Codec/Parser/Video",
+      "category": "Parsers"
+    },
+    {
+      "name": "aacparse",
+      "longName": "AAC parser",
+      "description": "Parses AAC audio streams",
+      "klass": "Codec/Parser/Audio",
+      "category": "Parsers"
+    },
+    {
+      "name": "mpegaudioparse",
+      "longName": "MPEG audio parser",
+      "description": "Parses MPEG audio streams",
+      "klass": "Codec/Parser/Audio",
+      "category": "Parsers"
+    },
+    {
+      "name": "opusparse",
+      "longName": "Opus parser",
+      "description": "Parses Opus audio streams",
+      "klass": "Codec/Parser/Audio",
+      "category": "Parsers"
+    },
+    {
+      "name": "compositor",
+      "longName": "Compositor",
+      "description": "Composite multiple video streams",
+      "klass": "Filter/Editor/Video/Compositor",
+      "category": "Effects"
+    },
+    {
+      "name": "glvideomixer",
+      "longName": "GL Video Mixer",
+      "description": "OpenGL video mixer",
+      "klass": "Filter/Editor/Video/Compositor",
+      "category": "Effects"
+    },
+    {
+      "name": "playbin",
+      "longName": "Player Bin",
+      "description": "Autoplug and play media from an URI",
+      "klass": "Generic/Bin/Player",
+      "category": "Bins"
+    },
+    {
+      "name": "playbin3",
+      "longName": "Player Bin 3",
+      "description": "Autoplug and play media from an URI",
+      "klass": "Generic/Bin/Player",
+      "category": "Bins"
+    },
+    {
+      "name": "encodebin",
+      "longName": "Encoder Bin",
+      "description": "Convenience encoding/muxing element",
+      "klass": "Generic/Bin/Encoder",
+      "category": "Bins"
+    },
+    {
+      "name": "parsebin",
+      "longName": "Parse Bin",
+      "description": "Parses streams",
+      "klass": "Generic/Bin/Parser",
+      "category": "Bins"
+    }
+  ]
+}
+
+

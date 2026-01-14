@@ -1,0 +1,90 @@
+{
+  "version": "1.0",
+  "name": "Test with AppSink (for embedded preview)",
+  "nodes": [
+    {
+      "id": "node-convert",
+      "type": "videoconvert",
+      "position": {
+        "x": 285,
+        "y": 195
+      },
+      "properties": {}
+    },
+    {
+      "id": "node-scale",
+      "type": "videoscale",
+      "position": {
+        "x": 510,
+        "y": 195
+      },
+      "properties": {}
+    },
+    {
+      "id": "node-jpegenc",
+      "type": "jpegenc",
+      "position": {
+        "x": 720,
+        "y": 195
+      },
+      "properties": {
+        "quality": "80"
+      }
+    },
+    {
+      "id": "node-sink",
+      "type": "appsink",
+      "position": {
+        "x": 930,
+        "y": 195
+      },
+      "properties": {
+        "emit-signals": "true",
+        "max-buffers": "2",
+        "drop": "true",
+        "sync": "true"
+      }
+    },
+    {
+      "id": "node-1768378136435",
+      "type": "videotestsrc",
+      "position": {
+        "x": 45,
+        "y": 195
+      },
+      "properties": {
+        "pattern": "circular"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge-2",
+      "source": "node-convert",
+      "sourceHandle": "src",
+      "target": "node-scale",
+      "targetHandle": "sink"
+    },
+    {
+      "id": "edge-3",
+      "source": "node-scale",
+      "sourceHandle": "src",
+      "target": "node-jpegenc",
+      "targetHandle": "sink"
+    },
+    {
+      "id": "edge-4",
+      "source": "node-jpegenc",
+      "sourceHandle": "src",
+      "target": "node-sink",
+      "targetHandle": "sink"
+    },
+    {
+      "id": "edge-1768378139695",
+      "source": "node-1768378136435",
+      "target": "node-convert",
+      "sourceHandle": "src",
+      "targetHandle": "sink"
+    }
+  ]
+}

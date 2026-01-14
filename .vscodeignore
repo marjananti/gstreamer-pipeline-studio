@@ -1,0 +1,39 @@
+# Source files (compiled to dist/)
+src/**
+!src/backend/**
+!src/data/**
+
+# Development files
+.vscode/**
+node_modules/**
+test/**
+
+# Config files
+tsconfig.json
+webpack.*.js
+.eslintrc*
+.prettierrc*
+.editorconfig
+
+# Git
+.git/**
+.gitignore
+
+# Package manager
+package-lock.json
+
+# Build artifacts
+*.map
+*.tsbuildinfo
+
+# Documentation source
+docs/**
+
+# Examples (keep in package for users)
+# examples/**
+
+# Misc
+*.md
+!README.md
+!CHANGELOG.md
+

@@ -1,0 +1,44 @@
+{
+  "version": "1.0",
+  "name": "Simple Preview Test",
+  "nodes": [
+    {
+      "id": "node-src",
+      "type": "videotestsrc",
+      "position": { "x": 100, "y": 200 },
+      "properties": {
+        "pattern": "smpte"
+      }
+    },
+    {
+      "id": "node-convert",
+      "type": "videoconvert",
+      "position": { "x": 350, "y": 200 },
+      "properties": {}
+    },
+    {
+      "id": "node-sink",
+      "type": "autovideosink",
+      "position": { "x": 600, "y": 200 },
+      "properties": {}
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge-1",
+      "source": "node-src",
+      "sourceHandle": "src",
+      "target": "node-convert",
+      "targetHandle": "sink"
+    },
+    {
+      "id": "edge-2",
+      "source": "node-convert",
+      "sourceHandle": "src",
+      "target": "node-sink",
+      "targetHandle": "sink"
+    }
+  ]
+}
+
+

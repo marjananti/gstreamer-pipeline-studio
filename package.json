@@ -1,0 +1,207 @@
+{
+  "name": "gstreamer-pipeline-studio",
+  "displayName": "GStreamer Pipeline Studio",
+  "description": "Visual drag-and-drop pipeline builder for GStreamer with embedded media preview, debugging, and profiling",
+  "version": "0.1.0",
+  "publisher": "marjananti",
+  "author": {
+    "name": "Marjan Antic"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/marjananti/gstreamer-pipeline-studio"
+  },
+  "homepage": "https://github.com/marjananti/gstreamer-pipeline-studio#readme",
+  "bugs": {
+    "url": "https://github.com/marjananti/gstreamer-pipeline-studio/issues"
+  },
+  "icon": "media/icon.png",
+  "galleryBanner": {
+    "color": "#1e1e1e",
+    "theme": "dark"
+  },
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Visualization",
+    "Debuggers",
+    "Other"
+  ],
+  "keywords": [
+    "gstreamer",
+    "multimedia",
+    "pipeline",
+    "video",
+    "audio"
+  ],
+  "activationEvents": [
+    "onLanguage:gstpipe",
+    "onCommand:gstreamer.openPipelineEditor"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "gstreamer.openPipelineEditor",
+        "title": "Open Pipeline Editor",
+        "category": "GStreamer"
+      },
+      {
+        "command": "gstreamer.runPipeline",
+        "title": "Run Pipeline",
+        "category": "GStreamer",
+        "icon": "$(play)"
+      },
+      {
+        "command": "gstreamer.stopPipeline",
+        "title": "Stop Pipeline",
+        "category": "GStreamer",
+        "icon": "$(debug-stop)"
+      },
+      {
+        "command": "gstreamer.validatePipeline",
+        "title": "Validate Pipeline",
+        "category": "GStreamer",
+        "icon": "$(check)"
+      },
+      {
+        "command": "gstreamer.exportToGstLaunch",
+        "title": "Export to gst-launch",
+        "category": "GStreamer"
+      },
+      {
+        "command": "gstreamer.showDebugLog",
+        "title": "Show Debug Log",
+        "category": "GStreamer"
+      },
+      {
+        "command": "gstreamer.refreshElementCatalog",
+        "title": "Refresh Element Catalog",
+        "category": "GStreamer"
+      }
+    ],
+    "customEditors": [
+      {
+        "viewType": "gstreamer.pipelineEditor",
+        "displayName": "GStreamer Pipeline Editor",
+        "selector": [
+          {
+            "filenamePattern": "*.gstpipe"
+          }
+        ],
+        "priority": "default"
+      }
+    ],
+    "languages": [
+      {
+        "id": "gstpipe",
+        "aliases": [
+          "GStreamer Pipeline"
+        ],
+        "extensions": [
+          ".gstpipe"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "menus": {
+      "editor/title": [
+        {
+          "when": "resourceExtname == .gstpipe",
+          "command": "gstreamer.runPipeline",
+          "group": "navigation@1"
+        },
+        {
+          "when": "resourceExtname == .gstpipe",
+          "command": "gstreamer.stopPipeline",
+          "group": "navigation@2"
+        },
+        {
+          "when": "resourceExtname == .gstpipe",
+          "command": "gstreamer.validatePipeline",
+          "group": "navigation@3"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "GStreamer Pipeline Studio",
+      "properties": {
+        "gstreamer.pythonPath": {
+          "type": "string",
+          "default": "python3",
+          "description": "Path to Python interpreter with GStreamer bindings"
+        },
+        "gstreamer.debugLevel": {
+          "type": "string",
+          "default": "2",
+          "enum": [
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5"
+          ],
+          "description": "GST_DEBUG level (0=none, 5=verbose)"
+        },
+        "gstreamer.frameRate": {
+          "type": "number",
+          "default": 30,
+          "description": "Maximum frame rate for video preview"
+        },
+        "gstreamer.jpegQuality": {
+          "type": "number",
+          "default": 80,
+          "minimum": 10,
+          "maximum": 100,
+          "description": "JPEG quality for video preview frames"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run build",
+    "build": "npm run build:extension && npm run build:webview",
+    "build:extension": "webpack --mode production --config webpack.extension.config.js",
+    "build:webview": "webpack --mode production --config webpack.webview.config.js",
+    "watch": "concurrently \"npm run watch:extension\" \"npm run watch:webview\"",
+    "watch:extension": "webpack --mode development --watch --config webpack.extension.config.js",
+    "watch:webview": "webpack --mode development --watch --config webpack.webview.config.js",
+    "lint": "eslint src --ext ts,tsx",
+    "test": "node ./out/test/runTest.js",
+    "package": "vsce package",
+    "publish": "vsce publish"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "@types/react": "^18.2.45",
+    "@types/react-dom": "^18.2.18",
+    "@types/vscode": "^1.85.0",
+    "@typescript-eslint/eslint-plugin": "^6.15.0",
+    "@typescript-eslint/parser": "^6.15.0",
+    "@vscode/vsce": "^2.22.0",
+    "concurrently": "^8.2.2",
+    "css-loader": "^6.8.1",
+    "eslint": "^8.56.0",
+    "style-loader": "^3.3.3",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.3.3",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "@radix-ui/react-dialog": "^1.0.5",
+    "@radix-ui/react-dropdown-menu": "^2.0.6",
+    "@radix-ui/react-scroll-area": "^1.0.5",
+    "@radix-ui/react-select": "^2.0.0",
+    "@radix-ui/react-tabs": "^1.0.4",
+    "@radix-ui/react-tooltip": "^1.0.7",
+    "jsonrpc-lite": "^2.2.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "reactflow": "^11.10.1",
+    "zustand": "^4.4.7"
+  }
+}

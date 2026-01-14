@@ -1,0 +1,109 @@
+{
+  "version": "1.0",
+  "name": "Audio/Video Muxer Example",
+  "nodes": [
+    {
+      "id": "node-video-src",
+      "type": "videotestsrc",
+      "position": {
+        "x": 100,
+        "y": 100
+      },
+      "properties": {
+        "pattern": "smpte",
+        "num-buffers": 300
+      }
+    },
+    {
+      "id": "node-audio-src",
+      "type": "audiotestsrc",
+      "position": {
+        "x": 100,
+        "y": 350
+      },
+      "properties": {
+        "wave": "sine",
+        "freq": 440,
+        "num-buffers": 300
+      }
+    },
+    {
+      "id": "node-video-enc",
+      "type": "x264enc",
+      "position": {
+        "x": 350,
+        "y": 100
+      },
+      "properties": {
+        "tune": "zerolatency",
+        "bitrate": 2000
+      }
+    },
+    {
+      "id": "node-audio-enc",
+      "type": "opusenc",
+      "position": {
+        "x": 345,
+        "y": 345
+      },
+      "properties": {}
+    },
+    {
+      "id": "node-mux",
+      "type": "matroskamux",
+      "position": {
+        "x": 600,
+        "y": 225
+      },
+      "properties": {}
+    },
+    {
+      "id": "node-sink",
+      "type": "filesink",
+      "position": {
+        "x": 850,
+        "y": 225
+      },
+      "properties": {
+        "location": "output.mkv"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge-1",
+      "source": "node-video-src",
+      "sourceHandle": "src",
+      "target": "node-video-enc",
+      "targetHandle": "sink"
+    },
+    {
+      "id": "edge-2",
+      "source": "node-audio-src",
+      "sourceHandle": "src",
+      "target": "node-audio-enc",
+      "targetHandle": "sink"
+    },
+    {
+      "id": "edge-3",
+      "source": "node-video-enc",
+      "sourceHandle": "src",
+      "target": "node-mux",
+      "targetHandle": "video_%u"
+    },
+    {
+      "id": "edge-4",
+      "source": "node-audio-enc",
+      "sourceHandle": "src",
+      "target": "node-mux",
+      "targetHandle": "audio_%u"
+    },
+    {
+      "id": "edge-5",
+      "source": "node-mux",
+      "sourceHandle": "src",
+      "target": "node-sink",
+      "targetHandle": "sink"
+    }
+  ]
+}
